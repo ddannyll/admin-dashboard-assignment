@@ -1,3 +1,8 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .profile {
     width: 40px;
     height: 40px;
@@ -26,7 +31,7 @@
     grid-template-areas:
     "search profile"
     "welcome actions";
-    padding: 2%;
+    padding: 0.5% 2%;
     grid-template-columns: 4fr 1fr;
 }
 
@@ -39,6 +44,8 @@
 
 .search-container>input[type="search"] {
     flex-grow: 1;
+    max-width: 1000px;
+    height: 2rem;
 }
 
 .profile-container {
@@ -46,6 +53,7 @@
     display: flex;
     justify-content: end;
     align-items: center;
+    gap: 15px;
 }
 
 .profile-container>* {
@@ -54,21 +62,24 @@
 
 .welcome-container {
     grid-area: welcome;
-    display:grid;
-    grid-template-areas:
-    "profile welcome"
-    "profile user";
-    width: 40%;
+    display:flex;
+    gap: 15px;
+    align-items: center;
 }
 
 .welcome-container>.profile {
     grid-area: profile;
+    width: 50px;
+    height: 50px;
 }
 
 .actions-container {
     grid-area: actions;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: end;
 }
-
 
 .side-panel {
     padding: 10%;
@@ -78,17 +89,47 @@
     gap: 60px;
 }
 
-.side-panel>*:not(.logo) {
-    display: flex;
-    flex-direction: column;
+.side-panel>* {
+    /* Primary and Secondary Nav*/
+    display: grid;
+    gap: 20px;
 }
 
-.side-panel li>*, .logo>* {
-    display: inline;
+.side-panel i {
+    margin-right: 20px;
 }
-
 
 .main-container {
     grid-area: main;
+    display: grid;
+    grid-template-areas:
+    "projects announcements"
+    "projects trending";
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
+    width: 100%;
 }
 
+.projects {
+    grid-area: projects;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.card {
+    background-color: lightblue;
+    margin: 10px;
+    padding: 40px;
+}
+
+.annoouncments {
+    grid-area: announcements;
+}
+
+.trending {
+    grid-area: trending;
+}
