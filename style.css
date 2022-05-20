@@ -1,3 +1,12 @@
+.profile {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    background-color: aqua;
+    border-radius: 50%;
+    font-size: 1rem;
+}
+
 .container {
     height: 100vh;
     width: 100vw;
@@ -5,8 +14,9 @@
     grid-template-areas:
     "side head"
     "side main";
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: minmax(200px, 1fr) 5fr;
     grid-template-rows: 1fr 5fr;
+    overflow: auto;
 }
 
 .header {
@@ -16,18 +26,43 @@
     grid-template-areas:
     "search profile"
     "welcome actions";
+    padding: 2%;
+    grid-template-columns: 4fr 1fr;
 }
 
 .search-container {
     grid-area: search;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-container>input[type="search"] {
+    flex-grow: 1;
 }
 
 .profile-container {
     grid-area: profile;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.profile-container>* {
+    display: inline-block;
 }
 
 .welcome-container {
     grid-area: welcome;
+    display:grid;
+    grid-template-areas:
+    "profile welcome"
+    "profile user";
+    width: 40%;
+}
+
+.welcome-container>.profile {
+    grid-area: profile;
 }
 
 .actions-container {
@@ -43,17 +78,17 @@
     gap: 60px;
 }
 
-.side-panel>* {
+.side-panel>*:not(.logo) {
     display: flex;
     flex-direction: column;
 }
 
-.side-panel li>* {
+.side-panel li>*, .logo>* {
     display: inline;
-    background-color: red;
 }
 
 
 .main-container {
     grid-area: main;
 }
+
