@@ -1,0 +1,59 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-areas:
+    "side head"
+    "side main";
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 5fr;
+}
+
+.header {
+    border: 1px solid black;
+    grid-area: head;
+    display: grid;
+    grid-template-areas:
+    "search profile"
+    "welcome actions";
+}
+
+.search-container {
+    grid-area: search;
+}
+
+.profile-container {
+    grid-area: profile;
+}
+
+.welcome-container {
+    grid-area: welcome;
+}
+
+.actions-container {
+    grid-area: actions;
+}
+
+
+.side-panel {
+    padding: 10%;
+    grid-area: side;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.side-panel>* {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-panel li>* {
+    display: inline;
+    background-color: red;
+}
+
+
+.main-container {
+    grid-area: main;
+}
