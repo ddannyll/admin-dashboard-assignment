@@ -63,7 +63,7 @@ h3 {
     box-shadow: 25px 0px 20px -10px rgb(92, 99, 96);
     z-index: 1;
     font-weight: 700;
-    gap: 50px;
+    gap: 50px 0;
     padding: 30px 80px;
 }
 
@@ -137,7 +137,6 @@ h3 {
     font-size: 1.1rem;
     width: 8rem;
     height: 3rem;
-    margin: 0 10px;
     transition: 0.1s;
 }
 
