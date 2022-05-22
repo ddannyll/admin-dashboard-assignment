@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
+
+:root {
+    --color-primary: #205375;
+    --color-secondary: #F66B0E;
+}
+body {
+    font-family: 'montserrat';
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -19,13 +30,12 @@ a {
     grid-template-areas:
     "side head"
     "side main";
-    grid-template-columns: minmax(200px, 1fr) 5fr;
+    grid-template-columns: minmax(300px, 1fr) 5fr;
     grid-template-rows: 1fr 5fr;
     overflow: auto;
 }
 
 .header {
-    border: 1px solid black;
     grid-area: head;
     display: grid;
     grid-template-areas:
@@ -33,6 +43,11 @@ a {
     "welcome actions";
     padding: 0.5% 2%;
     grid-template-columns: 4fr 1fr;
+    box-shadow: 25px 0px 20px -10px rgb(92, 99, 96);
+    z-index: 1;
+    font-weight: 700;
+    gap: 50px;
+    padding: 30px 80px;
 }
 
 .search-container {
@@ -46,6 +61,15 @@ a {
     flex-grow: 1;
     max-width: 1000px;
     height: 2rem;
+    border-radius: 100px;
+    border: none;
+    background-color: rgb(230, 230,230);
+    padding-left: 1rem;
+    font-weight: 400;
+}
+
+.search-container>input[type="search"]:focus {
+    border:none;
 }
 
 .profile-container {
@@ -73,6 +97,11 @@ a {
     height: 50px;
 }
 
+.welcome-message>*:nth-last-child(1) {
+    font-size: 1.5rem;
+    line-height: 3rem;
+}
+
 .actions-container {
     grid-area: actions;
     display: flex;
@@ -81,12 +110,36 @@ a {
     justify-content: end;
 }
 
+.actions-container button {
+    background-color: var(--color-primary);
+    border: solid;
+    border-radius: 5rem;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    width: 8rem;
+    height: 3rem;
+    margin: 0 10px;
+    transition: 0.1s;
+}
+
+.actions-container button:hover {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    background-color: white;
+    cursor: pointer;
+}
+
 .side-panel {
     padding: 10%;
     grid-area: side;
     display: flex;
     flex-direction: column;
     gap: 60px;
+    background-color: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .side-panel>* {
@@ -100,30 +153,75 @@ a {
 }
 
 .main-container {
+    box-sizing: border-box;
     grid-area: main;
     display: grid;
     grid-template-areas:
     "projects announcements"
     "projects trending";
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    height: 100%;
-    width: 100%;
+    grid-template-rows: 50% 50%;
+    overflow: auto;
+    padding: 25px;
+
 }
 
 .projects {
     grid-area: projects;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    overflow: auto;
-    height: 100%;
-    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: 2rem;
+    grid-auto-rows: 270px;
+    gap: 30px;
+}
+
+.projects>*:first-child {
+    grid-column: 1 / -1;
+    align-self: end;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding-left: 1rem;
 }
 
 .card {
-    background-color: lightblue;
-    margin: 10px;
-    padding: 40px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    padding-left: 40px;
+    display: grid;
+    grid-template-rows: 1.5rem 1fr 1.5rem;
+    gap: 20px;
+    border-left: 15px solid var(--color-secondary);
+    border-radius: 15px;
+    transition: 0.3s;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.card-body {
+    overflow: hidden;
+    padding-right: 1rem;
+}
+
+.card-actions {
+    justify-self: end;
+}
+
+.card-actions>* {
+    margin-left: 10px;
+    transition: 0.2s;
+}
+
+.card-actions>*:hover {
+    cursor: pointer;
+    color: var(--color-secondary);
 }
 
 .annoouncments {
