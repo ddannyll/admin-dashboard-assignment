@@ -221,6 +221,7 @@ h3 {
 .card-body {
     overflow: hidden;
     padding-right: 1rem;
+    font-weight: 300;
 }
 
 .card-actions {
@@ -251,6 +252,7 @@ h3 {
 
 .announcements>ul>li {
     padding: 1rem 0;
+    font-weight: 300;
 }
 
 .announcements>ul>li:not(:first-child) {
