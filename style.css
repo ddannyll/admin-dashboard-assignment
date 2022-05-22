@@ -59,7 +59,7 @@ h3 {
     "search profile"
     "welcome actions";
     padding: 0.5% 2%;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 1fr 1fr;
     box-shadow: 25px 0px 20px -10px rgb(92, 99, 96);
     z-index: 1;
     font-weight: 700;
@@ -125,6 +125,7 @@ h3 {
     align-items: center;
     gap: 15px;
     justify-content: end;
+    flex-wrap: wrap;
 }
 
 .actions-container button {
